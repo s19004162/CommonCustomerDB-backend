@@ -9,35 +9,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tk244.cmcustdb.Service.CustomerSearchService;
-import com.tk244.cmcustdb.entity.Customer;
+import com.tk244.cmcustdb.Service.AccountTransactionSearchService;
+import com.tk244.cmcustdb.entity.AccountTransaction;
 
 import lombok.extern.slf4j.Slf4j;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @Slf4j
-@RequestMapping(value="/customer")
-public class CustomerController {
-    
+@RequestMapping(value="/accountTransaction")
+
+public class AccountTransactionController {
+ 
     @Autowired
-     CustomerSearchService service;
-
-     @RequestMapping(value="/", method = RequestMethod.GET)
-     public List<Customer> findAllCustomer() {
-         
-        log.info("Starting findAllCustomer method.");
-        return service.findAllCustomer();
-
-     }
+     AccountTransactionSearchService service;
 
     @RequestMapping(value="/{custId}", method = RequestMethod.GET)
-    public Customer findOneCustomer(@PathVariable("custId") String custId) {
+    public List<AccountTransaction> findAccountTransactions(@PathVariable("custId") String custId) {
         
-        log.info("Starting findOneCustomer method.");
-        return service.findOneCustomer(custId);
+        log.info("Starting findAccountTransaction method.");
+        return service.findAllAccountTransaction(custId);
     }
 
-
-
 }
+

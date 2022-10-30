@@ -11,4 +11,10 @@
         WHERE cust_id = #{custId}
     </select>
 
+    <select id="findAllCustomer" resultType="com.tk244.cmcustdb.entity.Customer">
+        SELECT
+         * 
+        FROM customer
+    </select>
+
 </mapper>
