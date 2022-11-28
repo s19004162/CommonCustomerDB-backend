@@ -32,3 +32,18 @@ management:
     web:
       exposure:
         include: "*"
+
+server:
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: /dev
+      prefix: stdout
+      buffered: false
+      suffix:
+      file-date-format:
+      pattern: "%{X-Forwarded-For}i %l %u %t '%r' %s %b %D %F"
+    max-connections: 1
+
+      
+
